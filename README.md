@@ -1,6 +1,6 @@
 <!--타이틀 부분-->
 <div align="center">
-  <img src="assets/chaemin's github.gif" />
+  <img src="assets/chaemin_github_2.gif" />
 </div>
 
 <!--내용 부분-->
