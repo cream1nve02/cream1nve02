@@ -301,6 +301,60 @@
   .food h3 { margin: 0 0 4px; font-size: 15.5px; font-weight: 700; }
   .food p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
 
+  /* ---------- 예상 경비 ---------- */
+  .costs {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .cost-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 16px;
+    padding: 15px 22px;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .cost-row:first-child { border-top: none; }
+  .cost-row h3 { margin: 0; font-size: 15px; font-weight: 700; }
+  .cost-row .amount {
+    font-size: 15.5px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .cost-row p {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .cost-row .ev {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--jade);
+    background: var(--jade-soft);
+    border-radius: 6px;
+    padding: 1px 7px;
+    margin-left: 6px;
+    vertical-align: 1px;
+  }
+  .cost-row.total {
+    background: linear-gradient(90deg, var(--gold-soft), transparent 80%);
+    border-top: 2px solid var(--gold);
+  }
+  .cost-row.total h3 { font-size: 16px; }
+  .cost-row.total .amount { color: var(--gold); font-size: 18px; }
+  .budget-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 4px 16px;
+  }
+
   ul.tips {
     list-style: none;
     margin: 0;
@@ -587,11 +641,61 @@
     </div>
   </section>
 
+  <!-- 예상 경비 -->
+  <section class="extra">
+    <h2 class="serif">예상 경비</h2>
+    <p class="budget-note">서울 출발 · 테슬라 자차 · 3인 기준의 대략적인 추정이에요. 출발지가 다르면 톨비·충전비만 조정하면 됩니다.</p>
+    <div class="costs">
+      <div class="cost-row">
+        <h3>고속도로 톨비<span class="ev">전기차 감면</span></h3>
+        <span class="amount">약 29,000원</span>
+        <p>서울↔경주 왕복 약 42,000원에서 전기차 하이패스 감면(2026년 30%) 적용 기준. 감면 단말기 미등록이면 42,000원.</p>
+      </div>
+      <div class="cost-row">
+        <h3>충전비</h3>
+        <span class="amount">약 50,000원</span>
+        <p>왕복 약 740km + 경주 시내 이동, 급속(수퍼차저) 충전 기준. 집밥 완충 후 출발하면 더 줄어요.</p>
+      </div>
+      <div class="cost-row">
+        <h3>주차<span class="ev">전기차 50% 할인</span></h3>
+        <span class="amount">약 12,000원</span>
+        <p>황남동 제2공영주차장 2박 3일. 공영주차장 전기차 할인 적용 기준 — 정산 시 저공해차 등록 확인.</p>
+      </div>
+      <div class="cost-row">
+        <h3>입장료</h3>
+        <span class="amount">18,000원</span>
+        <p>대릉원(천마총) 3,000원 + 동궁과 월지 3,000원 × 3인. 불국사·석굴암은 관람료 폐지, 박물관·첨성대·계림은 무료.</p>
+      </div>
+      <div class="cost-row">
+        <h3>식비</h3>
+        <span class="amount">약 350,000원</span>
+        <p>3인 × 8끼(휴게소 아침부터 마지막 점심까지) + 카페 2회 + 간식. 한 끼 1인 12,000~18,000원 잡았어요.</p>
+      </div>
+      <div class="cost-row">
+        <h3>황남빵 · 기념품</h3>
+        <span class="amount">약 50,000원</span>
+        <p>황남빵 · 찰보리빵 각 한두 상자 + 황리단길 소소한 기념품.</p>
+      </div>
+      <div class="cost-row">
+        <h3>숙소 (2박)</h3>
+        <span class="amount">예약가</span>
+        <p>황남동 숙소 — 이미 예약한 금액으로 더하면 최종 경비가 나와요.</p>
+      </div>
+      <div class="cost-row total">
+        <h3>합계 (숙소 제외)</h3>
+        <span class="amount">약 510,000원</span>
+        <p>1인으로 나누면 약 17만 원. 전기차 할인 덕에 교통·주차에서 2만 원 이상 아끼는 셈이에요.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- 준비물 & 팁 -->
   <section class="extra">
     <h2 class="serif">겨울 경주 준비물 &amp; 팁</h2>
     <ul class="tips">
-      <li>새벽 출발이니 전날 밤에 짐 다 싸두고, 주유·차량 점검도 미리 해두기. 아침에는 몸만 타면 되게.</li>
+      <li>새벽 출발이니 전날 밤에 짐 다 싸두고 완충해두기. 아침에는 몸만 타면 되게.</li>
+      <li>전기차 하이패스 감면 단말기 등록 여부 미리 확인 — 등록돼 있어야 톨비 할인이 자동 적용돼요.</li>
+      <li>겨울엔 전비가 20~30% 떨어져요. 경주 도착 전 휴게소 충전 한 번, 시내에선 보문단지 쪽 급속충전소 위치 미리 봐두기.</li>
       <li>12월 말 경주는 아침 기온이 영하까지 내려가요. 야경 볼 땐 핫팩·장갑·목도리 필수.</li>
       <li>해가 17시 20분쯤 지니까 야경 일정을 이르게 잡아도 충분히 어두워요.</li>
       <li>크리스마스 연휴라 숙소는 미리 예약할 것. 인기 식당은 웨이팅 각오.</li>
