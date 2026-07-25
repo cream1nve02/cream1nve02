@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>경주, 겨울 사흘 — 12.25–27 가족여행</title>
+<style>
+  :root {
+    --ground: #FBF9F4;
+    --card: #FFFFFF;
+    --ink: #232019;
+    --ink-soft: #6B6558;
+    --line: #E7E1D4;
+    --gold: #B8891F;
+    --gold-soft: #F3E9D2;
+    --jade: #4A7C6F;
+    --jade-soft: #E4EEEA;
+    --night: #141C2B;
+    --night-ink: #EFE8D8;
+    --night-gold: #E3B94E;
+    --shadow: 0 1px 2px rgba(35, 32, 25, 0.05), 0 8px 24px rgba(35, 32, 25, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #12161F;
+      --card: #1A2030;
+      --ink: #EDE7DA;
+      --ink-soft: #A39B89;
+      --line: #2A3245;
+      --gold: #E3B94E;
+      --gold-soft: #2E2A1C;
+      --jade: #7FB3A5;
+      --jade-soft: #1D2C28;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #FBF9F4;
+    --card: #FFFFFF;
+    --ink: #232019;
+    --ink-soft: #6B6558;
+    --line: #E7E1D4;
+    --gold: #B8891F;
+    --gold-soft: #F3E9D2;
+    --jade: #4A7C6F;
+    --jade-soft: #E4EEEA;
+    --shadow: 0 1px 2px rgba(35, 32, 25, 0.05), 0 8px 24px rgba(35, 32, 25, 0.06);
+  }
+  :root[data-theme="dark"] {
+    --ground: #12161F;
+    --card: #1A2030;
+    --ink: #EDE7DA;
+    --ink-soft: #A39B89;
+    --line: #2A3245;
+    --gold: #E3B94E;
+    --gold-soft: #2E2A1C;
+    --jade: #7FB3A5;
+    --jade-soft: #1D2C28;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif {
+    font-family: "Nanum Myeongjo", "AppleMyungjo", "Noto Serif KR", "Batang", serif;
+  }
+
+  /* ---------- 헤더: 동궁과 월지의 밤 ---------- */
+  header {
+    background: linear-gradient(180deg, #0D1320 0%, var(--night) 55%, #1E2A40 100%);
+    color: var(--night-ink);
+    padding: 64px 24px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .stars span {
+    position: absolute;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: rgba(239, 232, 216, 0.7);
+    animation: twinkle 3.6s ease-in-out infinite;
+  }
+  @keyframes twinkle { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.9; } }
+  @media (prefers-reduced-motion: reduce) {
+    .stars span { animation: none; opacity: 0.5; }
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    text-indent: 0.35em;
+    color: var(--night-gold);
+    border: 1px solid rgba(227, 185, 78, 0.4);
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+  }
+  header h1 {
+    font-size: clamp(38px, 8vw, 64px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+    color: #F6F0E2;
+  }
+  header h1 em { font-style: normal; color: var(--night-gold); }
+  .sub {
+    font-size: 16px;
+    color: rgba(239, 232, 216, 0.75);
+    margin: 0 auto 28px;
+    max-width: 34em;
+  }
+  .meta-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 1;
+  }
+  .chip {
+    font-size: 13.5px;
+    background: rgba(239, 232, 216, 0.08);
+    border: 1px solid rgba(239, 232, 216, 0.18);
+    border-radius: 999px;
+    padding: 7px 16px;
+    color: rgba(239, 232, 216, 0.9);
+    font-variant-numeric: tabular-nums;
+  }
+  .chip strong { color: var(--night-gold); font-weight: 700; }
+  /* 대릉원 고분 능선 */
+  .mounds {
+    position: relative;
+    height: 90px;
+    margin: 0 -24px;
+  }
+  .mounds i {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: #232C40;
+  }
+  .mounds i:nth-child(1) { left: -8%;  width: 44%; height: 74px; background: #1C2536; }
+  .mounds i:nth-child(2) { left: 26%;  width: 52%; height: 90px; }
+  .mounds i:nth-child(3) { left: 66%;  width: 46%; height: 66px; background: #283349; }
+  .mounds .moon {
+    position: absolute;
+    top: -44px; right: 14%;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #F2E3B8, var(--night-gold));
+    box-shadow: 0 0 32px 8px rgba(227, 185, 78, 0.25);
+  }
+
+  /* ---------- 본문 ---------- */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  .intro {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    max-width: 30em;
+    margin: 0 auto 56px;
+  }
+
+  .day { margin-bottom: 64px; }
+  .day-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .day-num {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-indent: 0.22em;
+    color: var(--gold);
+  }
+  .day-date {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .day h2 {
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: 800;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .day h2::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--gold);
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+
+  .timeline {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .stop {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 4px 18px;
+    padding: 18px 22px;
+    border-top: 1px solid var(--line);
+  }
+  .stop:first-child { border-top: none; }
+  .stop .time {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+    white-space: nowrap;
+  }
+  .stop .what { min-width: 0; }
+  .stop h3 {
+    font-size: 16.5px;
+    font-weight: 700;
+    margin: 0 0 2px;
+  }
+  .stop p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .stop.highlight {
+    background: linear-gradient(90deg, var(--gold-soft), transparent 70%);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--jade);
+    background: var(--jade-soft);
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: 2px;
+  }
+  .tag.gold { color: var(--gold); background: var(--gold-soft); }
+  .day-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 14px 4px 0;
+  }
+  .day-note strong { color: var(--gold); font-weight: 700; }
+
+  /* ---------- 먹거리 · 팁 ---------- */
+  section.extra { margin-bottom: 56px; }
+  section.extra h2 {
+    font-size: clamp(22px, 4.5vw, 26px);
+    font-weight: 800;
+    margin: 0 0 18px;
+  }
+  section.extra h2::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--jade);
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .food {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .food h3 { margin: 0 0 4px; font-size: 15.5px; font-weight: 700; }
+  .food p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
+
+  ul.tips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  ul.tips li {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14.5px;
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    box-shadow: var(--shadow);
+  }
+  ul.tips li::before {
+    content: "◆";
+    color: var(--gold);
+    font-size: 10px;
+    flex: none;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 13px;
+    padding: 0 24px 56px;
+  }
+  footer .serif { font-size: 15px; color: var(--ink); }
+
+  @media (max-width: 480px) {
+    .stop { grid-template-columns: 1fr; padding: 16px 18px; }
+    .stop .time { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="stars" aria-hidden="true">
+    <span style="top:12%;left:8%"></span><span style="top:22%;left:18%;animation-delay:.8s"></span>
+    <span style="top:9%;left:34%;animation-delay:1.6s"></span><span style="top:28%;left:48%;animation-delay:.4s"></span>
+    <span style="top:14%;left:62%;animation-delay:2.2s"></span><span style="top:24%;left:76%;animation-delay:1.2s"></span>
+    <span style="top:10%;left:88%;animation-delay:2.8s"></span><span style="top:36%;left:28%;animation-delay:2s"></span>
+    <span style="top:38%;left:68%;animation-delay:.6s"></span><span style="top:6%;left:52%;animation-delay:1s"></span>
+  </div>
+  <div class="eyebrow serif">우리 가족 겨울 여행</div>
+  <h1 class="serif">경주, <em>겨울 사흘</em></h1>
+  <p class="sub">엄마랑 누나랑 셋이서, 크리스마스에 떠나는 2박 3일.<br>천년의 도시에서 보내는 조용하고 따뜻한 연말.</p>
+  <div class="meta-chips">
+    <span class="chip"><strong>12.25 금 – 12.27 일</strong></span>
+    <span class="chip">2박 3일</span>
+    <span class="chip">엄마 · 누나 · 나</span>
+    <span class="chip" id="dday">D-day</span>
+  </div>
+  <div class="mounds" aria-hidden="true">
+    <span class="moon"></span>
+    <i></i><i></i><i></i>
+  </div>
+</header>
+
+<main>
+  <p class="intro">겨울 경주는 해가 짧은 대신 야경이 깊어요. 낮에는 고분과 절을 천천히 걷고, 해가 지면 불 밝힌 월지와 월정교를 보는 일정으로 짰어요.</p>
+
+  <!-- Day 1 -->
+  <section class="day">
+    <div class="day-head">
+      <span class="day-num">첫째 날</span>
+      <span class="day-date">12월 25일 금요일 · 크리스마스</span>
+    </div>
+    <h2 class="serif">고분 사이를 걷고, 월지의 밤을 보다</h2>
+    <div class="timeline">
+      <div class="stop">
+        <span class="time">~11:30</span>
+        <div class="what">
+          <h3>경주 도착</h3>
+          <p>KTX 신경주역 하차 또는 자차 도착. 짐은 숙소에 미리 맡기고 가볍게 출발.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">12:00</span>
+        <div class="what">
+          <h3>점심 — 쌈밥거리</h3>
+          <p>대릉원 근처 쌈밥거리에서 한 상 가득 쌈밥. 엄마 입맛에 제일 무난하고 든든해요.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">13:30</span>
+        <div class="what">
+          <h3>대릉원 · 천마총</h3>
+          <p>눈 덮인 고분 능선이 겨울 경주의 백미. 천마총 내부 관람 후 목련나무 포토존에서 가족사진.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">15:00</span>
+        <div class="what">
+          <h3>첨성대 · 계림 산책</h3>
+          <p>대릉원에서 걸어서 5분. 첨성대 앞 들판을 지나 계림 숲길로 천천히.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">16:00</span>
+        <div class="what">
+          <h3>교촌마을 · 월정교<span class="tag">해질녘</span></h3>
+          <p>최부자 고택이 있는 한옥마을. 해가 지기 시작하면 월정교 다리 위로.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">17:30</span>
+        <div class="what">
+          <h3>저녁 — 교리김밥</h3>
+          <p>교촌마을의 유명한 계란지단 김밥. 줄이 길면 근처 한정식으로 대체.</p>
+        </div>
+      </div>
+      <div class="stop highlight">
+        <span class="time">19:00</span>
+        <div class="what">
+          <h3>동궁과 월지 야경<span class="tag gold">이 여행의 하이라이트</span></h3>
+          <p>연못에 비친 누각의 불빛, 겨울 밤공기 속에서 보는 신라의 밤. 입장 마감 21:30이라 여유 있어요.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">20:30</span>
+        <div class="what">
+          <h3>숙소 체크인 · 휴식</h3>
+          <p>첫날은 무리하지 않기. 따뜻한 방에서 귤 까먹으며 하루 마무리.</p>
+        </div>
+      </div>
+    </div>
+    <p class="day-note"><strong>동선 메모</strong> — 대릉원 → 첨성대 → 계림 → 교촌마을 → 동궁과 월지는 전부 도보권이라 차 없이 이어져요.</p>
+  </section>
+
+  <!-- Day 2 -->
+  <section class="day">
+    <div class="day-head">
+      <span class="day-num">둘째 날</span>
+      <span class="day-date">12월 26일 토요일</span>
+    </div>
+    <h2 class="serif">불국사의 아침, 박물관의 오후</h2>
+    <div class="timeline">
+      <div class="stop">
+        <span class="time">08:30</span>
+        <div class="what">
+          <h3>아침 식사 후 출발</h3>
+          <p>숙소 조식 또는 근처 국밥. 불국사까지 차로 약 20분.</p>
+        </div>
+      </div>
+      <div class="stop highlight">
+        <span class="time">09:30</span>
+        <div class="what">
+          <h3>불국사<span class="tag gold">유네스코 세계유산</span></h3>
+          <p>아침의 고요한 경내가 제일 좋아요. 다보탑·석가탑, 청운교·백운교 앞에서 사진 한 장. 겨울 관람시간 09:00–17:00.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">11:30</span>
+        <div class="what">
+          <h3>석굴암</h3>
+          <p>불국사에서 토함산 길 따라 차로 10분. 본존불 앞에서는 조용히, 마음속 소원 하나씩.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">13:00</span>
+        <div class="what">
+          <h3>점심 — 보문단지</h3>
+          <p>보문호수 쪽으로 내려와 식사. 호수 전망 식당이면 엄마가 좋아하실 거예요.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">14:30</span>
+        <div class="what">
+          <h3>국립경주박물관<span class="tag">실내 · 무료</span></h3>
+          <p>금관과 성덕대왕신종(에밀레종)은 꼭 보기. 추운 오후에 몸 녹이기에도 딱 좋은 코스.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">16:30</span>
+        <div class="what">
+          <h3>황리단길</h3>
+          <p>카페에서 몸 녹이며 쉬고, 소품샵 구경하며 기념품 고르기. 십원빵도 하나씩.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">18:00</span>
+        <div class="what">
+          <h3>저녁 — 황리단길 또는 성동시장</h3>
+          <p>분위기 내고 싶으면 황리단길, 푸짐하게 먹고 싶으면 성동시장 먹자골목.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">19:30</span>
+        <div class="what">
+          <h3>월정교 야경 산책</h3>
+          <p>첫날 못 봤거나 한 번 더 보고 싶다면. 다리 건너편에서 보는 반영이 제일 예뻐요.</p>
+        </div>
+      </div>
+    </div>
+    <p class="day-note"><strong>동선 메모</strong> — 오전은 토함산 방면(불국사·석굴암), 오후는 시내로 돌아오는 큰 원 하나. 이동은 대부분 차로 15–20분.</p>
+  </section>
+
+  <!-- Day 3 -->
+  <section class="day">
+    <div class="day-head">
+      <span class="day-num">셋째 날</span>
+      <span class="day-date">12월 27일 일요일</span>
+    </div>
+    <h2 class="serif">호숫가 산책, 그리고 빵 사서 집으로</h2>
+    <div class="timeline">
+      <div class="stop">
+        <span class="time">09:30</span>
+        <div class="what">
+          <h3>체크아웃</h3>
+          <p>짐 정리하고 여유 있게 출발. 차에 짐 싣고 마지막 코스로.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">10:00</span>
+        <div class="what">
+          <h3>보문호수 산책</h3>
+          <p>겨울 아침 호숫가 한 바퀴. 물안개가 끼는 날이면 그림 같아요.</p>
+        </div>
+      </div>
+      <div class="stop highlight">
+        <span class="time">11:00</span>
+        <div class="what">
+          <h3>황남빵 · 찰보리빵 사기<span class="tag gold">선물용 필수</span></h3>
+          <p>본점에서 갓 구운 황남빵 한 상자, 찰보리빵도 한 상자. 집에 가서 먹을 것까지 넉넉히.</p>
+        </div>
+      </div>
+      <div class="stop">
+        <span class="time">12:00</span>
+        <div class="what">
+          <h3>점심 후 출발</h3>
+          <p>가볍게 점심 먹고 귀가길. 연휴 마지막 일요일이라 오후 일찍 출발하는 게 안전해요.</p>
+        </div>
+      </div>
+    </div>
+    <p class="day-note"><strong>동선 메모</strong> — 마지막 날은 일정 최소화. 컨디션 봐서 보문호수 대신 오릉이나 분황사로 바꿔도 좋아요.</p>
+  </section>
+
+  <!-- 먹거리 -->
+  <section class="extra">
+    <h2 class="serif">경주에서 꼭 먹을 것</h2>
+    <div class="food-grid">
+      <div class="food"><h3>황남빵</h3><p>팥소 가득한 경주 대표 빵. 갓 구운 게 최고.</p></div>
+      <div class="food"><h3>교리김밥</h3><p>계란지단을 산처럼 올린 교촌마을 명물.</p></div>
+      <div class="food"><h3>쌈밥정식</h3><p>대릉원 앞 쌈밥거리. 반찬 가짓수에 놀람 주의.</p></div>
+      <div class="food"><h3>찰보리빵</h3><p>쫀득한 보리 반죽, 커피랑 잘 어울려요.</p></div>
+      <div class="food"><h3>성동시장 먹자골목</h3><p>우엉김밥, 전, 국밥. 시장 인심은 덤.</p></div>
+      <div class="food"><h3>십원빵</h3><p>황리단길 간식. 다보탑 새겨진 동전 모양 빵.</p></div>
+    </div>
+  </section>
+
+  <!-- 준비물 & 팁 -->
+  <section class="extra">
+    <h2 class="serif">겨울 경주 준비물 &amp; 팁</h2>
+    <ul class="tips">
+      <li>12월 말 경주는 아침 기온이 영하까지 내려가요. 야경 볼 땐 핫팩·장갑·목도리 필수.</li>
+      <li>해가 17시 20분쯤 지니까 야경 일정을 이르게 잡아도 충분히 어두워요.</li>
+      <li>크리스마스 연휴라 숙소와 KTX는 미리 예약할 것. 인기 식당은 웨이팅 각오.</li>
+      <li>동궁과 월지는 야간 입장 마감이 21:30 — 저녁 먹고 가도 여유 있어요.</li>
+      <li>대릉원~월지 일대는 도보 이동이라 편한 운동화가 제일 중요해요.</li>
+      <li>박물관·천마총 등 실내 코스를 오후에 배치해서 추울 때 몸 녹일 수 있게 짰어요.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p class="serif">"경주의 겨울밤은 천 년 전에도 이렇게 깊었겠지."</p>
+  <p>2026. 12. 25 – 27 · 엄마 · 누나 · 나</p>
+</footer>
+
+<script>
+  (function () {
+    var trip = new Date(2026, 11, 25);
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var diff = Math.round((trip - today) / 86400000);
+    var el = document.getElementById("dday");
+    if (!el) return;
+    if (diff > 0) el.innerHTML = "<strong>D-" + diff + "</strong>";
+    else if (diff >= -2) el.innerHTML = "<strong>여행 중!</strong>";
+    else el.innerHTML = "<strong>다녀왔어요</strong>";
+  })();
+</script>
+</body>
+</html>
